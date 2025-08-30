@@ -66,6 +66,7 @@
             font-weight: 600;
             cursor: pointer;
             backdrop-filter: blur(5px);
+            font-size: 14px;
         }
         .main-content {
             display: grid;
@@ -223,6 +224,10 @@
             border: 2px solid rgba(102, 126, 234, 0.2);
             transition: all 0.3s ease;
         }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
         .stat-value {
             font-size: 2rem;
             font-weight: 700;
@@ -310,12 +315,12 @@
     <div class="container">
         <!-- الرأس -->
         <div class="header">
-            <h1>🏋️ المدرب الذكي - حمزة الوحداني</h1>
-            <p>منصة ذكية متكاملة للصحة، اللياقة، والتغذية الرياضية</p>
+            <h1 id="title">🏋️ المدرب الذكي - حمزة الوحداني</h1>
+            <p id="subtitle">منصة ذكية متكاملة للصحة، اللياقة، والتغذية الرياضية</p>
 
             <div class="trainer-profile">
                 <h3>👤 بقلم: حمزة الوحداني</h3>
-                <p>
+                <p id="trainer-desc">
                     <strong>دكتور مهني في علم التمرين | مهندس ذكاء اصطناعي | ماجستير لياقة وتغذية رياضية</strong><br>
                     خبير في الإصابات الرياضية، الدفاع عن النفس، وعلم التشريح (معتمد من المغرب)<br>
                     شواهد في الإسعافات الأولية، الصحة العامة، وفنون القتال
@@ -327,26 +332,26 @@
         <div class="main-content">
             <!-- بيانات المستخدم -->
             <div class="card">
-                <h2><span class="icon">👤</span>بياناتك الشخصية</h2>
+                <h2><span class="icon">👤</span><span id="userDataTitle">بياناتك الشخصية</span></h2>
                 <form id="user-form">
                     <div class="form-group">
-                        <label for="name">الاسم</label>
+                        <label for="name" id="nameLabel">الاسم</label>
                         <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
                     </div>
                     <div class="form-group">
-                        <label for="age">العمر</label>
+                        <label for="age" id="ageLabel">العمر</label>
                         <input type="number" id="age" name="age" min="16" max="80" placeholder="25" required>
                     </div>
                     <div class="form-group">
-                        <label for="weight">الوزن (كغ)</label>
+                        <label for="weight" id="weightLabel">الوزن (كغ)</label>
                         <input type="number" id="weight" name="weight" step="0.1" placeholder="70.5" required>
                     </div>
                     <div class="form-group">
-                        <label for="height">الطول (سم)</label>
+                        <label for="height" id="heightLabel">الطول (سم)</label>
                         <input type="number" id="height" name="height" placeholder="170" required>
                     </div>
                     <div class="form-group">
-                        <label for="bloodType">فصيلة الدم</label>
+                        <label for="bloodType" id="bloodTypeLabel">فصيلة الدم</label>
                         <select id="bloodType" name="bloodType" required>
                             <option value="">اختر فصيلة الدم</option>
                             <option value="A+">A+</option>
@@ -360,7 +365,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="fitness-level">مستوى اللياقة</label>
+                        <label for="fitness-level" id="fitnessLevelLabel">مستوى اللياقة</label>
                         <select id="fitness-level" name="fitness-level" required>
                             <option value="">اختر مستواك</option>
                             <option value="BEGINNER">مبتدئ</option>
@@ -369,15 +374,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="sportInterest">الرياضة المفضلة</label>
+                        <label for="sportInterest" id="sportInterestLabel">الرياضة المفضلة</label>
                         <input type="text" id="sportInterest" name="sportInterest" placeholder="كرة القدم، كاراتيه، ركض...">
                     </div>
                     <div class="form-group">
-                        <label for="martialArt">فنون القتال (إن وجد)</label>
+                        <label for="martialArt" id="martialArtLabel">فنون القتال (إن وجد)</label>
                         <input type="text" id="martialArt" name="martialArt" placeholder="جودو، ملاكمة، تايكوندو...">
                     </div>
                     <div class="form-group">
-                        <label for="injury">هل لديك إصابة؟</label>
+                        <label for="injury" id="injuryLabel">هل لديك إصابة؟</label>
                         <select id="injury" name="injury">
                             <option value="">لا شيء</option>
                             <option value="back">آلام الظهر</option>
@@ -389,40 +394,40 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="absenceDays">عدد أيام الغياب المتوقعة</label>
+                        <label for="absenceDays" id="absenceDaysLabel">عدد أيام الغياب المتوقعة</label>
                         <input type="number" id="absenceDays" name="absenceDays" min="0" max="365" placeholder="0" value="0">
                     </div>
                     <div class="form-group">
-                        <label for="goals">أهدافك</label>
+                        <label for="goals" id="goalsLabel">أهدافك</label>
                         <textarea id="goals" name="goals" placeholder="مثال: فقدان الوزن، بناء العضلات، تحسين اللياقة" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn">حفظ البيانات 💾</button>
+                    <button type="submit" class="btn"><span id="saveBtn">حفظ البيانات 💾</span></button>
                 </form>
             </div>
 
             <!-- لوحة الإحصائيات -->
             <div class="card">
-                <h2><span class="icon">📊</span>إحصائياتك</h2>
+                <h2><span class="icon">📊</span><span id="statsTitle">إحصائياتك</span></h2>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-value" id="bmi-value">--</div>
-                        <div class="stat-label">مؤشر كتلة الجسم</div>
+                        <div class="stat-label" id="bmiLabel">مؤشر كتلة الجسم</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" id="workouts-count">0</div>
-                        <div class="stat-label">تمارين مكتملة</div>
+                        <div class="stat-label" id="workoutsLabel">تمارين مكتملة</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" id="calories-burned">0</div>
-                        <div class="stat-label">سعرة محروقة</div>
+                        <div class="stat-label" id="caloriesLabel">سعرة محروقة</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-value" id="streak-days">0</div>
-                        <div class="stat-label">أيام متتالية</div>
+                        <div class="stat-label" id="streakLabel">أيام متتالية</div>
                     </div>
                 </div>
                 <div style="margin-top: 20px;">
-                    <label style="color: #666; font-size: 0.9rem;">التقدم الأسبوعي</label>
+                    <label style="color: #666; font-size: 0.9rem;" id="weeklyProgressLabel">التقدم الأسبوعي</label>
                     <div class="progress-bar">
                         <div class="progress-fill" id="weekly-progress" style="width: 0%"></div>
                     </div>
@@ -431,13 +436,13 @@
                     </div>
                 </div>
                 <button class="btn" onclick="generateWorkoutPlan()" style="margin-top: 20px;">
-                    إنشاء خطة تمرين 🎯
+                    <span id="generatePlanBtn">إنشاء خطة تمرين 🎯</span>
                 </button>
                 <div id="workout-plan-display" class="workout-plan" style="display: none;">
                     <!-- ستظهر خطة التمرين هنا -->
                 </div>
                 <div id="body-projection" class="body-projection" style="display: none;">
-                    <h3>📈 تغيرات جسمك المستقبلية</h3>
+                    <h3 id="bodyProjectionTitle">📈 تغيرات جسمك المستقبلية</h3>
                     <canvas id="bodyChart"></canvas>
                 </div>
             </div>
@@ -445,78 +450,92 @@
 
         <!-- نافذة المحادثة -->
         <div class="chat-container">
-            <h2><span class="icon">💬</span>المحادثة مع المدرب الذكي</h2>
+            <h2><span class="icon">💬</span><span id="chatTitle">المحادثة مع المدرب الذكي</span></h2>
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot-message">
-                    مرحباً! أنا مدربك الذكي، بدعم من خبرة <strong>حمزة الوحداني</strong> كخبير لياقة وتغذية رياضية.<br>
-                    أخبرني: ما هدفك؟ هل لديك إصابة؟ ما نوع رياضتك؟
+                    <span id="welcomeMsg">مرحباً! أنا مدربك الذكي، بدعم من خبرة <strong>حمزة الوحداني</strong> كخبير لياقة وتغذية رياضية.<br>
+                    أخبرني: ما هدفك؟ هل لديك إصابة؟ ما نوع رياضتك؟</span>
                 </div>
             </div>
             <div class="loading" id="loading">
-                جاري التفكير<span class="spinner"></span>
+                <span id="thinkingText">جاري التفكير</span><span class="spinner"></span>
             </div>
             <div class="chat-input-container">
                 <input type="text" class="chat-input" id="chat-input" 
                        placeholder="اسألني: ماذا يحدث إن توقفت عن التمرين لمدة شهر؟">
-                <button class="send-btn" onclick="sendMessage()">إرسال 🚀</button>
+                <button class="send-btn" onclick="sendMessage()"><span id="sendBtn">إرسال 🚀</span></button>
             </div>
             <div class="pdf-export">
-                <button class="btn-pdf" onclick="exportPDF()">تصدير التقرير كـ PDF</button>
+                <button class="btn-pdf" onclick="exportPDF()"><span id="exportPdfBtn">تصدير التقرير كـ PDF</span></button>
             </div>
         </div>
     </div>
 
     <script>
-        // الترجمات
+        // الترجمات الكاملة
         const translations = {
             ar: {
                 title: "المدرب الذكي - حمزة الوحداني",
-                name: "الاسم",
-                age: "العمر",
-                weight: "الوزن (كغ)",
-                height: "الطول (سم)",
-                bloodType: "فصيلة الدم",
-                fitnessLevel: "مستوى اللياقة",
-                sportInterest: "الرياضة المفضلة",
-                martialArt: "فنون القتال",
-                injury: "هل لديك إصابة؟",
-                absenceDays: "عدد أيام الغياب",
-                goals: "أهدافك",
-                save: "حفظ البيانات 💾",
-                bmi: "مؤشر كتلة الجسم",
-                workouts: "تمارين مكتملة",
-                calories: "سعرة محروقة",
-                streak: "أيام متتالية",
-                weeklyProgress: "التقدم الأسبوعي",
-                generatePlan: "إنشاء خطة تمرين 🎯",
-                bodyProjection: "تغيرات جسمك المستقبلية",
-                chatPlaceholder: "اسألني: ماذا يحدث إن توقفت عن التمرين؟",
-                exportPDF: "تصدير التقرير كـ PDF",
+                subtitle: "منصة ذكية متكاملة للصحة، اللياقة، والتغذية الرياضية",
+                trainerDesc: "دكتور مهني في علم التمرين | مهندس ذكاء اصطناعي | ماجستير لياقة وتغذية رياضية<br>خبير في الإصابات الرياضية، الدفاع عن النفس، وعلم التشريح (معتمد من المغرب)<br>شواهد في الإسعافات الأولية، الصحة العامة، وفنون القتال",
+                userDataTitle: "بياناتك الشخصية",
+                nameLabel: "الاسم",
+                ageLabel: "العمر",
+                weightLabel: "الوزن (كغ)",
+                heightLabel: "الطول (سم)",
+                bloodTypeLabel: "فصيلة الدم",
+                fitnessLevelLabel: "مستوى اللياقة",
+                sportInterestLabel: "الرياضة المفضلة",
+                martialArtLabel: "فنون القتال (إن وجد)",
+                injuryLabel: "هل لديك إصابة؟",
+                absenceDaysLabel: "عدد أيام الغياب المتوقعة",
+                goalsLabel: "أهدافك",
+                saveBtn: "حفظ البيانات 💾",
+                statsTitle: "إحصائياتك",
+                bmiLabel: "مؤشر كتلة الجسم",
+                workoutsLabel: "تمارين مكتملة",
+                caloriesLabel: "سعرة محروقة",
+                streakLabel: "أيام متتالية",
+                weeklyProgressLabel: "التقدم الأسبوعي",
+                generatePlanBtn: "إنشاء خطة تمرين 🎯",
+                bodyProjectionTitle: "📈 تغيرات جسمك المستقبلية",
+                chatTitle: "المحادثة مع المدرب الذكي",
+                welcomeMsg: "مرحباً! أنا مدربك الذكي، بدعم من خبرة <strong>حمزة الوحداني</strong> كخبير لياقة وتغذية رياضية.<br>أخبرني: ما هدفك؟ هل لديك إصابة؟ ما نوع رياضتك؟",
+                thinkingText: "جاري التفكير",
+                sendBtn: "إرسال 🚀",
+                exportPdfBtn: "تصدير التقرير كـ PDF",
                 langSwitch: "Français"
             },
             fr: {
                 title: "Coach Intelligent - Hamza Al Wahdani",
-                name: "Nom",
-                age: "Âge",
-                weight: "Poids (kg)",
-                height: "Taille (cm)",
-                bloodType: "Groupe sanguin",
-                fitnessLevel: "Niveau de forme",
-                sportInterest: "Sport préféré",
-                martialArt: "Arts martiaux",
-                injury: "Avez-vous une blessure ?",
-                absenceDays: "Jours d'absence prévus",
-                goals: "Vos objectifs",
-                save: "Enregistrer les données 💾",
-                bmi: "Indice de masse corporelle",
-                workouts: "Entraînements terminés",
-                calories: "Calories brûlées",
-                streak: "Jours consécutifs",
-                weeklyProgress: "Progrès hebdomadaire",
-                generatePlan: "Générer un programme 🎯",
-                bodyProjection: "Évolution future de votre corps",
-                chatPlaceholder: "Demandez-moi : Que se passe-t-il si j'arrête l'entraînement pendant un mois ?",
-                exportPDF: "Exporter le rapport en PDF",
+                subtitle: "Plateforme intelligente intégrée pour la santé, la forme et la nutrition sportive",
+                trainerDesc: "Docteur professionnel en science de l'exercice | Ingénieur en intelligence artificielle | Master en condition physique et nutrition sportive<br>Expert en blessures sportives, autodéfense, et anatomie sportive (reconnu par le Maroc)<br>Certifications en premiers secours, santé publique et arts martiaux",
+                userDataTitle: "Vos informations personnelles",
+                nameLabel: "Nom",
+                ageLabel: "Âge",
+                weightLabel: "Poids (kg)",
+                heightLabel: "Taille (cm)",
+                bloodTypeLabel: "Groupe sanguin",
+                fitnessLevelLabel: "Niveau de forme",
+                sportInterestLabel: "Sport préféré",
+                martialArtLabel: "Arts martiaux (si applicable)",
+                injuryLabel: "Avez-vous une blessure ?",
+                absenceDaysLabel: "Nombre de jours d'absence prévus",
+                goalsLabel: "Vos objectifs",
+                saveBtn: "Enregistrer les données 💾",
+                statsTitle: "Vos statistiques",
+                bmiLabel: "Indice de masse corporelle",
+                workoutsLabel: "Entraînements terminés",
+                caloriesLabel: "Calories brûlées",
+                streakLabel: "Jours consécutifs",
+                weeklyProgressLabel: "Progrès hebdomadaire",
+                generatePlanBtn: "Générer un programme d'entraînement 🎯",
+                bodyProjectionTitle: "📈 Évolution future de votre corps",
+                chatTitle: "Conversation avec le coach intelligent",
+                welcomeMsg: "Bonjour ! Je suis votre coach intelligent, soutenu par l'expertise de <strong>Hamza Al Wahdani</strong> en condition physique et nutrition sportive.<br>Dites-moi : Quel est votre objectif ? Avez-vous une blessure ? Quel est votre sport ?",
+                thinkingText: "Je réfléchis",
+                sendBtn: "Envoyer 🚀",
+                exportPdfBtn: "Exporter le rapport en PDF",
                 langSwitch: "العربية"
             }
         };
@@ -525,16 +544,44 @@
 
         function switchLanguage() {
             currentLang = currentLang === 'ar' ? 'fr' : 'ar';
-            document.getElementById('langSwitch').textContent = translations[currentLang].langSwitch;
-            document.title = translations[currentLang].title;
-            document.querySelector('h1').innerHTML = "🏋️ " + translations[currentLang].title;
-            document.querySelector('h2[style*="color"]').textContent = "💬 " + translations[currentLang].chatPlaceholder;
-            document.getElementById('chat-input').placeholder = translations[currentLang].chatPlaceholder;
-            document.getElementById('langSwitch').textContent = translations[currentLang].langSwitch;
-            // تحديث باقي العناصر عند الترجمة الكاملة
+            localStorage.setItem('fitnessLang', currentLang);
+            localizeUI();
         }
 
-        document.getElementById('langSwitch').addEventListener('click', switchLanguage);
+        function localizeUI() {
+            const t = translations[currentLang];
+            document.getElementById('langSwitch').textContent = t.langSwitch;
+            document.title = t.title;
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('trainer-desc').innerHTML = t.trainerDesc;
+            document.getElementById('userDataTitle').textContent = t.userDataTitle;
+            document.getElementById('nameLabel').textContent = t.nameLabel;
+            document.getElementById('ageLabel').textContent = t.ageLabel;
+            document.getElementById('weightLabel').textContent = t.weightLabel;
+            document.getElementById('heightLabel').textContent = t.heightLabel;
+            document.getElementById('bloodTypeLabel').textContent = t.bloodTypeLabel;
+            document.getElementById('fitnessLevelLabel').textContent = t.fitnessLevelLabel;
+            document.getElementById('sportInterestLabel').textContent = t.sportInterestLabel;
+            document.getElementById('martialArtLabel').textContent = t.martialArtLabel;
+            document.getElementById('injuryLabel').textContent = t.injuryLabel;
+            document.getElementById('absenceDaysLabel').textContent = t.absenceDaysLabel;
+            document.getElementById('goalsLabel').textContent = t.goalsLabel;
+            document.getElementById('saveBtn').textContent = t.saveBtn;
+            document.getElementById('statsTitle').textContent = t.statsTitle;
+            document.getElementById('bmiLabel').textContent = t.bmiLabel;
+            document.getElementById('workoutsLabel').textContent = t.workoutsLabel;
+            document.getElementById('caloriesLabel').textContent = t.caloriesLabel;
+            document.getElementById('streakLabel').textContent = t.streakLabel;
+            document.getElementById('weeklyProgressLabel').textContent = t.weeklyProgressLabel;
+            document.getElementById('generatePlanBtn').textContent = t.generatePlanBtn;
+            document.getElementById('bodyProjectionTitle').textContent = t.bodyProjectionTitle;
+            document.getElementById('chatTitle').textContent = t.chatTitle;
+            document.querySelector('#chat-messages .bot-message').innerHTML = t.welcomeMsg;
+            document.getElementById('thinkingText').textContent = t.thinkingText;
+            document.getElementById('sendBtn').textContent = t.sendBtn;
+            document.getElementById('exportPdfBtn').textContent = t.exportPdfBtn;
+        }
 
         // بيانات المستخدم
         let userData = {};
@@ -544,12 +591,18 @@
 
         // تهيئة الصفحة
         document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('fitnessLang');
+            if (savedLang && (savedLang === 'ar' || savedLang === 'fr')) {
+                currentLang = savedLang;
+            }
+            localizeUI();
             loadUserData();
             updateStats();
             document.getElementById('user-form').addEventListener('submit', saveUserData);
             document.getElementById('chat-input').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') sendMessage();
             });
+            document.getElementById('langSwitch').addEventListener('click', switchLanguage);
         });
 
         // حفظ بيانات المستخدم
@@ -637,26 +690,31 @@
 
         // توليد الاستجابة
         function generateResponse(message) {
-            const lower = message.toLowerCase();
+            const lowerMessage = message.toLowerCase();
             if (!userData.name) return 'يرجى ملء بياناتك الشخصية أولاً!';
 
-            if (lower.includes('خطة تمرين') || lower.includes('تمرين')) {
+            if (lowerMessage.includes('خطة تمرين') || lowerMessage.includes('تمرين')) {
                 return generateWorkoutResponse();
-            } else if (lower.includes('غذاء') || lower.includes('طعام')) {
+            } else if (lowerMessage.includes('غذاء') || lowerMessage.includes('طعام') || lowerMessage.includes('نظام غذائي')) {
                 return generateNutritionResponse();
-            } else if (lower.includes('إيقاف') || lower.includes('توقف') || lower.includes('غياب')) {
+            } else if (lowerMessage.includes('إيقاف') || lowerMessage.includes('توقف') || lowerMessage.includes('غياب')) {
                 return predictDeconditioning();
-            } else if (lower.includes('جسم') || lower.includes('شكل') || lower.includes('مستقبلي')) {
+            } else if (lowerMessage.includes('جسم') || lowerMessage.includes('شكل') || lowerMessage.includes('مستقبلي')) {
                 return showBodyProjection();
-            } else if (lower.includes('فصيلة') || lower.includes('دم')) {
+            } else if (lowerMessage.includes('فصيلة') || lowerMessage.includes('دم')) {
                 return bloodTypeAdvice();
-            } else if (lower.includes('دفاع') || lower.includes('قتال')) {
+            } else if (lowerMessage.includes('دفاع') || lowerMessage.includes('قتال')) {
                 return martialArtAdvice();
+            } else if (lowerMessage.includes('أفضل تمرين') || lowerMessage.includes('بناء عضلات')) {
+                return generateBestExerciseResponse();
+            } else if (lowerMessage.includes('أفضل نظام غذائي') || lowerMessage.includes('فقدان الوزن')) {
+                return generateWeightLossNutritionResponse();
             } else {
                 return `مرحباً ${userData.name}! أنا هنا لمساعدتك في رحلة اللياقة. اسألني عن: التمرين، التغذية، الإصابات، أو تغيرات جسمك.`;
             }
         }
 
+        // توقعات فقدان العضلات
         function predictDeconditioning() {
             const days = userData.absenceDays || 0;
             if (days === 0) return "لا توجد أيام غياب مسجلة. استمر في التمرين!";
@@ -665,9 +723,10 @@
             return `إذا توقفت عن التمرين لمدة ${days} يوماً:<br>
                     ⚠️ فقدان العضلات: ${muscleLoss}%<br>
                     ⚠️ انخفاض اللياقة القلبية: ${cardioDrop}%<br>
-                    💡 نصيحة: مارس تمرين خفيف كل 3 أيام للحفاظ على المكتسبات.`;
+                    💡 نصيحة من حمزة الوحداني: مارس تمرين خفيف كل 3 أيام للحفاظ على المكتسبات.`;
         }
 
+        // عرض توقعات الجسم
         function showBodyProjection() {
             document.getElementById('body-projection').style.display = 'block';
             setTimeout(() => {
@@ -699,6 +758,7 @@
             return "هذه توقعات لتغيرات جسمك خلال 3 أشهر إذا واصلت هذا البرنامج:";
         }
 
+        // نصائح حسب فصيلة الدم
         function bloodTypeAdvice() {
             let advice = "";
             if (userData.bloodType.startsWith('A')) {
@@ -713,11 +773,70 @@
             return `فصيلة دمك: <strong>${userData.bloodType}</strong><br>${advice}`;
         }
 
+        // نصائح حسب فنون القتال
         function martialArtAdvice() {
             if (!userData.martialArt) return "أخبرني بفن القتال الذي تمارسه لأقدم لك نصائح مخصصة.";
             return `بما أنك تمارس <strong>${userData.martialArt}</strong>، أنصحك بتمارين التوازن، السرعة، والانفجارية.`;
         }
 
+        // أفضل تمرين لبناء العضلات
+        function generateBestExerciseResponse() {
+            let advice = "";
+            if (userData.injury === 'back') {
+                advice = "⚠️ تجنب الرفع الثقيل. ركّز على تمارين Core مثل البلانك والتمارين على الجسر.";
+            } else if (userData.injury === 'knee') {
+                advice = "⚠️ تجنب القرفصاء العميقة. ركّز على تمرين الساق الخلفية والاندفاع.";
+            }
+
+            return `
+                <strong>أفضل تمرين لبناء العضلات:</strong><br><br>
+                ✅ <strong>القرفصاء (Squat):</strong> يقوي الأرجل، المؤخرة، والجزء العلوي من الجسم.<br>
+                ✅ <strong>الضغط (Push-up):</strong> يقوي الصدر، الكتف، والذراعين.<br>
+                ✅ <strong>البلانك (Plank):</strong> يقوي البطن والجزء العلوي من الجسم.<br>
+                ✅ <strong>الديبس (Dips):</strong> يقوي الذراعين والصدر.<br><br>
+                
+                ${advice}<br><br>
+                💡 نصيحة من حمزة الوحداني:<br>
+                - ابدأ بـ 3 مجموعات × 10 تكرارات لكل تمرين<br>
+                - انتظر 60 ثانية بين المجموعات<br>
+                - استخدم الوزن المناسب (لا تجهد نفسك)
+            `;
+        }
+
+        // نظام غذائي لفقدان الوزن
+        function generateWeightLossNutritionResponse() {
+            let bloodTypeAdvice = "";
+            if (userData.bloodType && userData.bloodType.startsWith('A')) {
+                bloodTypeAdvice = "✅ تناول المزيد من الخضروات، قلل اللحوم الحمراء.";
+            } else if (userData.bloodType === 'O-') {
+                bloodTypeAdvice = "✅ استفد من البروتين الحيواني والتمارين الشديدة.";
+            } else if (userData.bloodType.includes('B')) {
+                bloodTypeAdvice = "✅ مارس تمارين التوازن واليوجا.";
+            }
+
+            return `
+                <strong>أفضل نظام غذائي لفقدان الوزن:</strong><br><br>
+                🍎 <strong>الخلاصة:</strong><br>
+                - خلق عجز في السعرات (300-500 سعرة يومياً)<br>
+                - زيادة البروتين (20-30% من السعرات)<br>
+                - تقليل السكريات المضافة<br>
+                - شرب 2-3 لتر ماء يومياً<br>
+                - النوم 7-8 ساعات<br><br>
+                
+                🥗 <strong>أمثلة على وجبات:</strong><br>
+                - الإفطار: بيضة + فواكه + حليب قليل الدسم<br>
+                - الغداء: دجاج مشوي + خضار + أرز بني<br>
+                - العشاء: سمك + سلطة + زيت زيتون<br><br>
+                
+                ${bloodTypeAdvice}<br><br>
+                💡 نصيحة من حمزة الوحداني:<br>
+                - لا تقلل السعرات بشكل مفرط (قد يؤدي إلى فقدان العضلات)<br>
+                - اعتمد على الطعام الطبيعي، تجنّب الأطعمة المصنعة<br>
+                - ركّز على التقدم، ليس على الرقم على الميزان
+            `;
+        }
+
+        // تمرين مناسب
         function generateWorkoutResponse() {
             let injuryAdvice = "";
             if (userData.injury === 'back') {
@@ -736,6 +855,7 @@
                     هل تريد تفاصيل أكثر؟`;
         }
 
+        // نصائح غذائية
         function generateNutritionResponse() {
             return `نصائح غذائية مخصصة لك يا ${userData.name}! 🥗<br><br>
                     <strong>بناءً على فصيلة دمك (${userData.bloodType})</strong>:<br>
@@ -745,6 +865,7 @@
                     هل تريد خطة غذائية أسبوعية؟`;
         }
 
+        // إنشاء خطة تمرين
         function generateWorkoutPlan() {
             if (!userData.name) {
                 alert('يرجى ملء بياناتك الشخصية أولاً!');
@@ -766,6 +887,7 @@
             addMessage('تم إنشاء خطة تمرين مخصصة لك! 🎯', 'bot');
         }
 
+        // تصدير PDF (قيد التطوير)
         function exportPDF() {
             alert("ميزة تصدير PDF قيد التطوير. ستُضاف قريباً في الإصدار الكامل للمنصة.");
         }
